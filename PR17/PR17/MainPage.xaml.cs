@@ -18,15 +18,19 @@ namespace PR17
         }
         private void RequestClick(object sender, EventArgs e)
         {
-            string url = "http://numbersapi.com";
-            RequestLabel.Text = "";
-            using (var WebClient = new WebClient())
+            string url = "http://numbersapi.com/";
+            if (RequestEntry.Text.Contains('.'))
             {
-                string value = Convert.ToBase64String(Encoding.ASCII.GetBytes(RequestEntry.Text));
-                WebClient.Headers.Add("Request", value);
-                var response = WebClient.DownloadString(url);
-                RequestLabel.Text = Convert.ToString(response);
+                RequestLabel.Text = "Введено некорректное число";
             }
+            else
+            {
+                using (var WebClient = new WebClient())
+                {
+                    var response = WebClient.DownloadString(url + RequestEntry.Text);
+                    RequestLabel.Text = Convert.ToString(response);
+                }
+            }         
         }
     }
 }

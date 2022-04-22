@@ -7,7 +7,7 @@
         <Entry x:Name="RequestEntry" Keyboard="Numeric"></Entry>
         <Button Clicked="RequestClick" Text="Отправить запрос"></Button>
         <ScrollView>
-            <Label x:Name="RequestLabel"></Label>
+            <Label x:Name="RequestLabel" FontSize="Medium" TextColor="Black"></Label>
         </ScrollView>
     </StackLayout>
 </ContentPage>
